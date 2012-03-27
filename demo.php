@@ -7,13 +7,14 @@ $db = dbConn::getConnection();
 
 //query database using prepared statement
 	//sql
-	$sql = $db->prepare("SELECT * FROM 'table' WHERE id = :id");
+	$sql = $db->prepare("SELECT * FROM 'table' WHERE column = :id");
 
 	//save result of sql query to variable.
-	$result = $db->execute( array(':id' => '3') );
+	$result = $sql->execute( array(':id' => '1') );
 	
 //echo result
-echo $row = $db->fetch($result);
+$row = $sql->fetch();
+echo $row[0];
 
 
 ?>
